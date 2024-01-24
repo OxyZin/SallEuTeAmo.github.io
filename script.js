@@ -1,16 +1,30 @@
 // script.js
 document.addEventListener('DOMContentLoaded', function () {
-    // Função para formatar o tempo em HH:MM:SS
-    function formatarTempo(horas, minutos, segundos) {
-        return `${horas.toString().padStart(2, '0')}:${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
-    }
-
     // Função para obter e exibir uma cantada
     function exibirCantada() {
-        // Lógica para obter uma nova cantada (pode ser uma lista de cantadas)
+        // Lista de cantadas
         const cantadas = [
             "Você não é Google, mas tem tudo o que eu procuro.",
             "Você acredita em amor à primeira vista ou devo passar por aqui novamente?",
+            "Pra que usar metadinha se a gente pode usar aliança?",
+            "Eu não sou o Buzz Lightyear, mas posso levar nosso relacionamento ao infinito e além.",
+            "A intimidade a gente já pegou, mas agora já pode chegar beijando?",
+            "Se beleza fosse crime, você seria condenado à morte.",
+            "Eu não tenho chocolate, mas se você procura alguém doce, eu estou aqui.",
+            "Não sou papelaria, mas se você quiser, eu posso fazer o papel de ser o amor da sua vida.",
+            "EuTeAmo sem vírgula, sem ponto, sem espaço e ponto final!",
+            "Que mão linda! Ficaria melhor se eu colocasse uma aliança nela.",
+            "Vermelho é vermelho, rosa é rosa. Você deixa sua mãe ser minha sogra?",
+            "Me desculpe, Leia, mas o fenômeno mais lindo é o seu sorriso.",
+            "Você não é o Batman, mas acelerou meus BATMENtos cardíacos.",
+            "Te desejo noite (para ser boa, nós teríamos que estar juntos).",
+            "Valorize sua mãe, um dia ela será minha sogra.",
+            "Casa comigo, eu sei fazer miojo.",
+            "Pode me chamar de Will Smith, porque quando te vi, o maluco ficou em pedaços.",
+            "Sim, eu tenho ciúmes de você. Quem divide é calculadora, não eu.",
+            "Mona Lisa é só um rabisco comparado com o seu sorriso.",
+            "Quem dá golpe é lutador, já eu sou igual ao Itaú: feito para você.",
+            "Jesus, eu pedi uma pessoa decente, não uma deusa grega 🙏",
             // Adicione mais cantadas conforme necessário
         ];
 
@@ -21,31 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('cantada').textContent = cantadaAleatoria;
     }
 
-    // Função para atualizar o letreiro e a cantada
-    function atualizarLetreiro() {
-        // Obtenha o tempo atual em segundos
-        const segundosDecorridos = Math.floor(Date.now() / 1000);
-
-        // Calcule as horas, minutos e segundos restantes
-        const horasRestantes = Math.max(24 - Math.floor(segundosDecorridos / 3600), 0);
-        const minutosRestantes = Math.floor((segundosDecorridos % 3600) / 60);
-        const segundosRestantes = segundosDecorridos % 60;
-
-        // Exiba o tempo decorrido no elemento HTML
-        document.getElementById('tempo').textContent = formatarTempo(horasRestantes, minutosRestantes, segundosRestantes);
-
-        // Chame a função para exibir a cantada a cada 24 horas (86400 segundos)
-        if (segundosDecorridos % 86400 === 0) {
-            exibirCantada();
-        }
-
-        // Agende a próxima chamada após 1 segundo
-        setTimeout(atualizarLetreiro, 1000);
-    }
-
-    // Chame a função para exibir a cantada inicialmente
+    // Chame a função para exibir uma cantada inicialmente
     exibirCantada();
-
-    // Agende a próxima chamada após 1 segundo
-    setTimeout(atualizarLetreiro, 1000);
 });
